@@ -8,6 +8,7 @@ for (let index = 0; index < targerElement.length; index++) {
     key = this.innerHTML;
 
     makeSound(key);
+    buttonAnimation(key);
   });
 }
 
@@ -15,6 +16,7 @@ for (let index = 0; index < targerElement.length; index++) {
 
 document.addEventListener("keypress", function (event) {
   makeSound(event.key);
+  buttonAnimation(event.key);
 });
 
 function makeSound(key) {
@@ -51,4 +53,13 @@ function makeSound(key) {
     default:
       break;
   }
+}
+
+function buttonAnimation(key) {
+  var selctedbutton = document.querySelector("." + key);
+  selctedbutton.classList.add("pressed");
+
+  setTimeout(() => {
+    selctedbutton.classList.remove("pressed");
+  }, 200);
 }
